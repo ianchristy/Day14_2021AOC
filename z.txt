@@ -1,0 +1,71 @@
+==========================================================
+===                    b.py                           ====
+==========================================================
+ 16 records read in
+        work_pairs=['NN', 'NC', 'CB']
+      base_polymer={'NN': 1, 'NC': 1, 'CB': 1}
+          template=NNCB   {'N': 2, 'C': 1, 'B': 1}
+ n    C:nn    base_polymer
+ 0       1     {NN:1,NC:1,CB:1}
+ 1       2     {NC:1,CN:1,NB:1,BC:1,CH:1,HB:1}
+ 2       4     {NB:2,BC:2,CC:1,CN:1,BB:2,CB:2,BH:1,HC:1}
+ 3       5     {NB:2,BB:2,BC:2,BN:1,CC:1,CN:2,NC:1,     BH:1,     HH:1      CH:1,HB:2}
+ 4       7  *  {NB:3,BB:3,BC:2,BN:2,CC:1,CN:2,NC:1,CB:2,BH:2,HC:1,HH:1,HN:1,NH:1}
+     at step 4 the C count should be 10, not 7 
+==========================================================
+day_14>python a.py    the correct number of C's at each step
+     template=NNCB
+   first data line = CH -> B
+ 16 records read in
+ 0       4  C:1
+ 1       7  C:2
+ 2      13  C:4
+ 3      25  C:5
+ 4      49  C:10  <== b.py only has 7, not 10, missing 3 !! 
+ 5      97  C:15
+ 6     193  C:31
+ 7     385  C:48
+ 8     769  C:96
+ 9    1537  C:152
+10    3073  C:298
+==========================================================
+day_14>python z4.py     the correct number of N's per step
+     template=NNCB
+   first data line = CH -> B
+ 16 records read in
+ 0       4  N:2
+ 1       7  N:2
+ 2      13  N:2
+ 3      25  N:5
+ 4      49  N:11
+ 5      97  N:23
+ 6     193  N:48
+ 7     385  N:99
+ 8     769  N:205
+ 9    1537  N:422
+10    3073  N:865
+==========================================================
+===                    b.py                           ====
+==========================================================
+ 16 records read in
+        work_pairs=['NN', 'NC', 'CB']
+      base_polymer={'NN': 1, 'NC': 1, 'CB': 1}
+          template=NNCB   {'N': 2, 'C': 1, 'B': 1}
+ n    N:nn    base_polymer
+ 0       2     {NN:1,NC:1,CB:1}
+ 1       2     {NC:1,CN:1,NB:1,BC:1,CH:1,HB:1,NN:1,CB:1}
+ 2       2     {NB:2,BC:2,CC:1,CN:2,BB:2,CB:2,BH:1,HC:1,NC:1,CH:1,HB:1,NN:1}
+ 2       2     {NB:2,BB:2,BC:2,CN:2,NC:1 CC:1,     CH:1,HB:1,BH:1,     CB:2,HC:1,NN:1}
+ 3       4  *  {NB:3,BB:2,BC:3,CN:3,NC:2,CC:1,BN:1,CH:1,HB:2,BH:2,HH:1,CB:2,HC:1,NN:1}
+ 4       7     {NB:3,BB:3,BN:2,BC:3,CC:1,CN:3,NC:2,CB:2,BH:2,HC:1,HH:1,HN:1,NH:1,CH:1,HB:2,NN:1}
+ 5      10     {NB:3,BB:3,BN:2,BC:3,CN:4,NC:3,CC:1,CH:2,HB:2,BH:2,HH:1,HN:1,NH:1,HC:2,CB:2,NN:1}
+ 6      13     {NB:3,BB:3,BN:2,BC:3,CC:1,CN:4,NC:3,CB:2,BH:2,HC:2,HH:1,HN:1,NH:1,CH:2,HB:2,NN:1}
+ 7      16     {NB:3,BB:3,BN:2,BC:3,CN:4,NC:3,CC:1,CH:2,HB:2,BH:2,HH:1,HN:1,NH:1,HC:2,CB:2,NN:1}
+ 8      19     {NB:3,BB:3,BN:2,BC:3,CC:1,CN:4,NC:3,CB:2,BH:2,HC:2,HH:1,HN:1,NH:1,CH:2,HB:2,NN:1}
+ 9      22     {NB:3,BB:3,BN:2,BC:3,CN:4,NC:3,CC:1,CH:2,HB:2,BH:2,HH:1,HN:1,NH:1,HC:2,CB:2,NN:1}
+10      25     {NB:3,BB:3,BN:2,BC:3,CC:1,CN:4,NC:3,CB:2,BH:2,HC:2,HH:1,HN:1,NH:1,CH:2,HB:2,NN:1}
+
+at step 3  there should be 5 N's  not 4,  missing one
+
+ 
+
